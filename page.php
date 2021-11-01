@@ -50,15 +50,22 @@ header("refresh: 3");
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($weatherDataArray as $row)
-        {?>
-            <tr>
-            <?php foreach ($row as $key=>$value){ ?>
-                <td><?php echo $value; ?></td>                
-            <?php } ?>
-            </tr>
-    <?php } ?>
-        <tr>        
+      <?php foreach ($weatherDataArray as $row) {?>
+        <tr>
+        <?php 
+        if (array_key_exists('id_stacji',  $row)) {echo '<td>' . $row['id_stacji'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('stacja',  $row)) {echo '<td>' . $row['stacja'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('data_pomiaru',  $row)) {echo '<td>' . $row['data_pomiaru'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('godzina_pomiaru',  $row)) {echo '<td>' . $row['godzina_pomiaru'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('temperatura',  $row)) {echo '<td>' . $row['temperatura'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('predkosc_wiatru',  $row)) {echo '<td>' . $row['predkosc_wiatru'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('kierunek_wiatru',  $row)) {echo '<td>' . $row['kierunek_wiatru'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('wilgotnosc_wzgledna',  $row)) {echo '<td>' . $row['wilgotnosc_wzgledna'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('suma_opadu',  $row)) {echo '<td>' . $row['suma_opadu'] . '</td>';} else {echo '<td>-</td>';}
+        if (array_key_exists('cisnienie',  $row)) {echo '<td>' . $row['cisnienie'] . '</td>';} else {echo '<td>-</td>';}
+        ?>
+        </tr>
+      <?php } ?>
     </tbody>
     </table>
     <form method="post">
